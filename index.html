@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8">
     <title></title>
@@ -45,6 +44,18 @@
         background-color: #2980b9;
       }
 
+      #connection-status {
+        font-size: 18px;
+        margin-top: 20px;
+      }
+
+      .online {
+        color: green;
+      }
+
+      .offline {
+        color: red;
+      }
     </style>
   </head>
 
@@ -52,6 +63,7 @@
     <h1>Welcome to Envixity</h1>
     <button onclick="redirectToGames()">Play Now</button>
     <button onclick="closeTab()">Panic Button</button>
+    <p id="connection-status"></p>
 
     <script>
       function redirectToGames() {
@@ -62,10 +74,28 @@
         window.close();
       }
 
+      function updateConnectionStatus() {
+        var statusElement = document.getElementById("connection-status");
+        if (navigator.onLine) {
+          statusElement.textContent = "Online";
+          statusElement.classList.add("online");
+          statusElement.classList.remove("offline");
+        } else {
+          statusElement.textContent = "Offline";
+          statusElement.classList.add("offline");
+          statusElement.classList.remove("online");
+        }
+      }
+
+      window.addEventListener('online', updateConnectionStatus);
+      window.addEventListener('offline', updateConnectionStatus);
+
+      updateConnectionStatus();
     </script>
   </body>
 
 </html>
+
 
 
 
