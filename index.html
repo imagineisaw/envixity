@@ -1,64 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-  <style>
-    body {
-      background-color: #1d1d1d;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
 
-    h1 {
-      font-size: 40px;
-      margin-top: 100px;
-      position: relative;
-      animation-name: slide;
-      animation-duration: 1s;
-      animation-fill-mode: forwards;
-    }
-
-    @keyframes slide {
-      from {
-        left: -100%;
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+      body {
+        background-color: #1d1d1d;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
       }
-      to {
-        left: 0;
+
+      h1 {
+        font-size: 40px;
+        margin-top: 100px;
+        position: relative;
+        animation-name: slide;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
       }
-    }
 
-    button {
-      padding: 10px 20px;
-      font-size: 24px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-top: 30px;
-    }
+      @keyframes slide {
+        from {
+          left: -100%;
+        }
 
-    button:hover {
-      background-color: #2980b9;
-    }
-  </style>
-</head>
-<body>
-  <h1>Welcome to Envixity</h1>
-  <button onclick="redirectToGames()">Play Now</button>
-  <button onclick="closeTab()">Panic Button</button>
+        to {
+          left: 0;
+        }
+      }
 
-  <script>
-    function redirectToGames() {
-      window.location.href = "games.html";
-    }
-    
-    function closeTab() {
-      window.close();
-    }
-  </script>
-</body>
+      button {
+        padding: 10px 20px;
+        font-size: 24px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 30px;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to Envixity</h1>
+    <button onclick="redirectToGames()">Play Now</button>
+    <button onclick="closeTab()">Panic Button</button>
+
+    <script>
+      function redirectToGames() {
+        window.location.href = "games.html";
+      }
+
+      function closeTab() {
+        window.close();
+      }
+
+    </script>
+  </body>
+
 </html>
 
 
