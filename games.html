@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
+
+  <head>
     <title>Games</title>
     <style>
-        body {
-            background-image: url('https://images.pexels.com/photos/176381/pexels-photo-176381.jpeg');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        h1 {
-            color: white;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 10px;
-        }
-        form {
-            display: inline-block;
-            margin: 10px;
-        }
-        input[type="text"] {
-            padding: 5px;
-            border-radius: 5px;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: none;
-            margin-left: 5px;
-        }
+      body {
+        background-image: url('https://images.pexels.com/photos/176381/pexels-photo-176381.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      h1 {
+        color: white;
+      }
+
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 10px;
+      }
+
+      form {
+        display: inline-block;
+        margin: 10px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        margin-left: 5px;
+      }
+
     </style>
-</head>
-<body>
+  </head>
+
+  <body>
     <h1>Games</h1>
-    
+
     <!-- Buttons -->
     <button onclick="window.location.href='https://www.google.com'">Button 1</button>
     <button onclick="window.location.href='https://www.github.com'">Button 2</button>
     <button onclick="window.location.href='https://www.youtube.com'">Button 3</button>
     <!-- Add more buttons here -->
 
-    <!-- Unblocked Search bar -->
+    <!-- Search button -->
     <form action="https://www.google.com/search" method="GET" target="_blank">
-        <input type="text" name="q" required>
-        <input type="submit" value="Search">
+      <input type="text" name="q" required>
+      <input type="submit" value="Search">
     </form>
-</body>
+  </body>
+
 </html>
+
