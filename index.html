@@ -57,6 +57,11 @@
       .offline {
         color: red;
       }
+      
+      #clock {
+        font-size: 24px;
+        margin-top: 20px;
+      }
 
     </style>
   </head>
@@ -66,6 +71,7 @@
     <button onclick="redirectToGames()">Play Now</button>
     <button onclick="closeTab()">Panic Button</button>
     <p id="connection-status"></p>
+    <p id="clock"></p>
 
     <script>
       function redirectToGames() {
@@ -88,9 +94,20 @@
           statusElement.classList.remove("online");
         }
       }
+      
+      function updateClock() {
+        var clockElement = document.getElementById("clock");
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        var time = hours + ":" + minutes + ":" + seconds;
+        clockElement.textContent = time;
+      }
 
       window.addEventListener('online', updateConnectionStatus);
       window.addEventListener('offline', updateConnectionStatus);
+      setInterval(updateClock, 1000);
 
       updateConnectionStatus();
 
