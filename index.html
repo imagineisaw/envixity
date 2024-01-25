@@ -1,117 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <style>
-      body {
-        background-color: #1d1d1d;
-        color: white;
-        font-family: Arial, sans-serif;
-        text-align: center;
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      background-color: #1d1d1d;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-top: 100px;
+      position: relative;
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes slide {
+      from {
+        left: -100%;
       }
 
-      h1 {
-        font-size: 40px;
-        margin-top: 100px;
-        position: relative;
-        animation-name: slide;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
+      to {
+        left: 0;
       }
+    }
 
-      @keyframes slide {
-        from {
-          left: -100%;
-        }
+    button {
+      padding: 10px 20px;
+      font-size: 24px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 30px;
+    }
 
-        to {
-          left: 0;
-        }
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #connection-status {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .online {
+      color: green;
+    }
+
+    .offline {
+      color: red;
+    }
+    
+    #clock {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to Envixity</h1>
+  <button onclick="redirectToGames()"><i class="fas fa-gamepad"></i></button>
+  <button onclick="closeTab()">Panic Button</button>
+  <p id="connection-status"></p>
+  <p id="clock"></p>
+
+  <script>
+    function redirectToGames() {
+      window.location.href = "games.html";
+    }
+
+    function closeTab() {
+      window.close();
+    }
+
+    function updateConnectionStatus() {
+      var statusElement = document.getElementById("connection-status");
+      if (navigator.onLine) {
+        statusElement.textContent = "Online";
+        statusElement.classList.add("online");
+        statusElement.classList.remove("offline");
+      } else {
+        statusElement.textContent = "Offline";
+        statusElement.classList.add("offline");
+        statusElement.classList.remove("online");
       }
+    }
+    
+    function updateClock() {
+      var clockElement = document.getElementById("clock");
+      var date = new Date();
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      var time = hours + ":" + minutes + ":" + seconds;
+      clockElement.textContent = time;
+    }
 
-      button {
-        padding: 10px 20px;
-        font-size: 24px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        cursor: pointer;
-        margin-top: 30px;
-      }
+    window.addEventListener('online', updateConnectionStatus);
+    window.addEventListener('offline', updateConnectionStatus);
+    setInterval(updateClock, 1000);
 
-      button:hover {
-        background-color: #2980b9;
-      }
+    updateConnectionStatus();
 
-      #connection-status {
-        font-size: 18px;
-        margin-top: 20px;
-      }
-
-      .online {
-        color: green;
-      }
-
-      .offline {
-        color: red;
-      }
-      
-      #clock {
-        font-size: 24px;
-        margin-top: 20px;
-      }
-
-    </style>
-  </head>
-
-  <body>
-    <h1>Welcome to Envixity</h1>
-    <button onclick="redirectToGames()">Play Now</button>
-    <button onclick="closeTab()">Panic Button</button>
-    <p id="connection-status"></p>
-    <p id="clock"></p>
-
-    <script>
-      function redirectToGames() {
-        window.location.href = "games.html";
-      }
-
-      function closeTab() {
-        window.close();
-      }
-
-      function updateConnectionStatus() {
-        var statusElement = document.getElementById("connection-status");
-        if (navigator.onLine) {
-          statusElement.textContent = "Online";
-          statusElement.classList.add("online");
-          statusElement.classList.remove("offline");
-        } else {
-          statusElement.textContent = "Offline";
-          statusElement.classList.add("offline");
-          statusElement.classList.remove("online");
-        }
-      }
-      
-      function updateClock() {
-        var clockElement = document.getElementById("clock");
-        var date = new Date();
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var seconds = date.getSeconds();
-        var time = hours + ":" + minutes + ":" + seconds;
-        clockElement.textContent = time;
-      }
-
-      window.addEventListener('online', updateConnectionStatus);
-      window.addEventListener('offline', updateConnectionStatus);
-      setInterval(updateClock, 1000);
-
-      updateConnectionStatus();
-
-    </script>
-  </body>
+  </script>
+</body>
 
 </html>
